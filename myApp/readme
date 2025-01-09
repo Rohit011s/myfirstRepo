@@ -1,0 +1,135 @@
+import {
+  TextInput,
+  StyleSheet,
+  ImageBackground,
+  ScrollView,
+  View,
+  Image,
+  Text,
+  TouchableOpacity,
+} from "react-native";
+
+const pressC = () => {
+  console.log("Hello it done!!");
+};
+export default function HomeScreen() {
+  return (
+     <ImageBackground 
+  source={require("../../assets/images/bgImg.jpg")} 
+style={{height:'100%',width:"100%"}} 
+  resizeMode="cover"
+>
+    <ScrollView style={{flex:1}}>
+    <View style={styles.titleContainer}>
+      <View style={styles.subView}>
+      <Image source={require('../../assets/images/samu.jpg') } style={{width:100, height:100,}}/>
+        <Text style={styles.hedding}>SignUp</Text>
+        <View style={styles.flexS}>
+         <Image source={require('../../assets/images/profile.png') } style={styles.icon}/>
+        <TextInput style={styles.inputText} placeholder="Username"></TextInput></View>
+        <View style={styles.flexS}><Image source={require('../../assets/images/padlock.png') } style={styles.icon}/>
+        <TextInput style={styles.inputText} placeholder="Password"></TextInput></View>
+       <View style={styles.flexS}><Image source={require('../../assets/images/padlock.png') } style={styles.icon}/>
+        <TextInput style={styles.inputText} placeholder="Re-enter Password"></TextInput></View>
+         <View style={styles.flexS}><Image source={require('../../assets/images/email.png') } style={styles.icon}/>
+        <TextInput style={styles.inputText} placeholder="Gmail"></TextInput></View>
+         <View style={styles.flexS}><Image source={require('../../assets/images/smartphone.png') } style={styles.icon}/>
+        <TextInput style={styles.inputText} placeholder="Mobile no."></TextInput></View>
+        <TouchableOpacity onPress={pressC} style={styles.btn}>
+          <Text style={styles.inputText1}>Submit</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+    </ScrollView>
+    </ImageBackground>
+  );
+}
+
+const styles = StyleSheet.create({
+  titleContainer: {
+    width: "100%",
+    height: "150%",
+    alignItems: "center",
+    alignContent: "center",
+    justifyContent: "center",
+  },
+  subView: {
+    padding: 20,
+    borderRadius: 20,
+    borderColor: "blue",
+    borderWidth: 2,
+    color: "white",
+    fontSize: 30,
+    textAlign: "center",
+    width: 500,
+    height: '80%',
+    backgroundColor: "#fb6",
+    shadowColor: "grey",
+    shadowOpacity: 0.8,
+    shadowRadius: 5,
+    shadowOffset: { width: 8, height: 8 },
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  fontText: {
+    width: "80%",
+    fontSize: 20,
+    textAlign: "left",
+    color: "white",
+    fontWeight: "bold",
+  },
+  inputText: {
+    width: "80%",
+    textAlign: "center",
+    alignContent: "center",
+    height: 40,
+    fontSize: 20,
+    backgroundColor: "white",
+    margin: 10,
+    borderRadius: 10,
+    shadowColor: "#fff2cd",
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    shadowOffset: { width: 8, height: 8 },
+  },
+  inputText1: {
+    width: "80%",
+    textAlign: "center",
+    alignContent: "center",
+    height: 40,
+    fontSize: 20,
+    backgroundColor: "blue",
+    margin: 10,
+    fontWeight: 400,
+    borderRadius: 10,
+    shadowColor: "#fff2cd",
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    shadowOffset: { width: 8, height: 8 },
+  },
+  btn: {
+    alignItems: "center",
+    width: "100%",
+  },
+
+hedding:{
+  textAlign:"center",
+  fontSize:20,
+  color:"black",
+  fontWeight:'bold',
+  padding:10,
+  textDecorationLine:'underline',
+    },  flexS:{
+      alignItems:'center',
+      flexDirection:'row',
+      textAlign:"center",
+      width:'100%',
+      margin:5,
+      padding:10,
+    },
+    icon:{
+      height:40,
+      width:40,
+    },
+ 
+  });
