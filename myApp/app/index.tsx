@@ -11,26 +11,26 @@ import {
 export default function HomeScreen() {
   const navigation=useNavigation();
   const pressC = () => {
-    navigation.navigate("(screen)");
+    navigation.navigate("(tabs)");
   };
   return (
        <ImageBackground 
-      source={require("../../assets/images/bgImg.jpg")} 
+      source={require("../assets/images/bgImg.jpg")} 
     style={{height:'100%',width:"100%"}} 
       resizeMode="cover"
     >
       <ScrollView style={{flex:1}}>
     <View style={styles.titleContainer}>
       <View style={styles.subView}>
-      <Image source={require('../../assets/images/samu.jpg') } style={{width:100, height:100,borderRadius:50}}/>
+      <Image source={require('../assets/images/samu.jpg') } style={{width:100, height:100,borderRadius:50}}/>
         <Text style={styles.hedding}>Login</Text> 
         <Text style={styles.fontText}> Username :</Text>
         <View style={styles.flexS}>
-        <Image source={require('../../assets/images/profile.png') } style={styles.icon}/>
+        <Image source={require('../assets/images/profile.png') } style={styles.icon}/>
         <TextInput style={styles.inputText} placeholder="username"></TextInput></View>
         <Text style={styles.fontText}> Password :</Text>
         <View style={styles.flexS}>
-          <Image source={require('../../assets/images/padlock.png') } style={styles.icon}/>
+          <Image source={require('../assets/images/padlock.png') } style={styles.icon}/>
         <TextInput style={styles.inputText}  placeholder="password"></TextInput> </View>
         <TouchableOpacity onPress={pressC} style={styles.btn}>
           <Text style={styles.inputText1}>Login</Text>

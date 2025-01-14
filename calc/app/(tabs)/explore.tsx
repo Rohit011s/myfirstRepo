@@ -10,7 +10,6 @@ export default function ExploreApp() {
   return (
     <>
     <ScrollView >
-
     {
       
       data.map((item)=>( 

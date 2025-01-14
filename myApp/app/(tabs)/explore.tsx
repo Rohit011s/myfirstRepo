@@ -1,5 +1,7 @@
 import React from "react";
-import { Dimensions, TextInput } from "react-native";
+import { Dimensions } from "react-native";
+import PostAdress from "../interface/postData";
+import images from "@/constants/ConstImg";
 import {
   View,
   Image,
@@ -8,7 +10,7 @@ import {
   StyleSheet,
   ScrollView,
 } from "react-native";
-
+import HighlightAdress from "../interface/highlight";
 export default function profile() {
   const windowWidth = Dimensions.get("window").width;
   const windowHeight = Dimensions.get("window").height;
@@ -16,9 +18,12 @@ export default function profile() {
     <View style={styles.container}>
       <View style={styles.navHead}>
         <TouchableOpacity>
-          <Text style={{fontSize:30}}> Instagram </Text>
+          <Image
+            source={require("../../assets/images/settings.png")}
+            style={styles.icon}
+          />
         </TouchableOpacity>
-        <TextInput style={styles.search} placeholder="Search"></TextInput>
+        <Text style={styles.username}>rohit._.suthar</Text>
         <TouchableOpacity>
           {" "}
           <Image
@@ -27,125 +32,97 @@ export default function profile() {
           />
         </TouchableOpacity>
       </View>
-
+      {/* profile section */}
       <ScrollView showsHorizontalScrollIndicator={false}>
-        <View style={styles.highlights}>
-          <View style={styles.Hicon}>
-            <Image
-              source={require("../../assets/images/icon.png")}
-              style={styles.Sicon}
-            />
-            <Text style={styles.Stxt}>rahul</Text>
+        <View style={styles.profileSection}>
+          <View style={styles.porfileRow}>
+            <Image source={images.logo} style={styles.profilePic} />
+            <View style={{ width: "40%" }}>
+              <Text style={styles.username}> rohit._.suthar</Text>
+              <View style={{ flexDirection: "row", gap: 10 }}>
+                <TouchableOpacity style={styles.btn}>
+                  <Text style={{ fontSize: 18, fontWeight: 400 }}>
+                    Edit Profile
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.btn}>
+                  <Text style={{ fontSize: 18, fontWeight: 400 }}>Archive</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
           </View>
-          <View style={styles.Hicon}>
-            <Image
-              source={require("../../assets/images/icon.png")}
-              style={styles.Sicon}
-            />
-            <Text style={styles.Stxt}>rahul</Text>
+          {/* bio */}
+          <View style={styles.bio}>
+            <View>Rohit </View>
+            <View>jai shree ram </View>
+            <View>IET'26 </View>
+            <View>Cool down...</View>
           </View>
-          <View style={styles.Hicon}>
-            <Image
-              source={require("../../assets/images/icon.png")}
-              style={styles.Sicon}
-            />
-            <Text style={styles.Stxt}>rahul</Text>
-          </View>
-          <View style={styles.Hicon}>
-            <Image
-              source={require("../../assets/images/icon.png")}
-              style={styles.Sicon}
-            />
-            <Text style={styles.Stxt}>rahul</Text>
-          </View>
-          <View style={styles.Hicon}>
-            <Image
-              source={require("../../assets/images/icon.png")}
-              style={styles.Sicon}
-            />
-            <Text style={styles.Stxt}>rahul</Text>
-          </View>
-          <View style={styles.Hicon}>
-            <Image
-              source={require("../../assets/images/icon.png")}
-              style={styles.Sicon}
-            />
-            <Text style={styles.Stxt}>rahul</Text>
+          {/* highlights */}
+          <View style={styles.highlights}>
+            {HighlightAdress.map((item) => (
+              <TouchableOpacity style={{ height: "100%" }}>
+                <Image source={item.img} style={styles.Hicon} />
+              </TouchableOpacity>
+            ))}
           </View>
         </View>
-
+        {/* follow section */}
+        <View style={styles.followSection}>
+          <View style={styles.followRow}>
+            <Text style={styles.boldBlack}>12</Text>
+            <Text style={styles.boldBlack}>posts</Text>
+          </View>
+          <View style={styles.followRow}>
+            <Text style={styles.boldBlack}>237</Text>
+            <Text style={styles.boldBlack}>followers</Text>
+          </View>
+          <View style={styles.followRow}>
+            <Text style={styles.boldBlack}>217</Text>
+            <Text style={styles.boldBlack}>following</Text>
+          </View>
+        </View>
+        {/* post nav */}
+        <View style={styles.postNav}>
+          <TouchableOpacity>
+            {" "}
+            <Image
+              source={require("../../assets/images/grid.png")}
+              style={styles.icon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            {" "}
+            <Image
+              source={require("../../assets/images/reel.png")}
+              style={styles.icon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            {" "}
+            <Image
+              source={require("../../assets/images/bookmark-white.png")}
+              style={styles.icon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            {" "}
+            <Image
+              source={require("../../assets/images/comment.png")}
+              style={styles.icon}
+            />
+          </TouchableOpacity>
+        </View>
         {/* posts */}
         <View style={styles.postSection}>
-          <View style={styles.postHead}>
-            <View style={styles.postHeadLeft}>
-              <Image
-                source={require("../../assets/images/icon.png")}
-                style={styles.postIcon}
-              />
-              <Text style={{fontSize:20}}>userID123</Text>
-              <TouchableOpacity style={styles.followBtn}>
-                Follow
-              </TouchableOpacity>
-            </View>
-            <View >
-              <TouchableOpacity>
-                <Image
-                  style={styles.more}
-                  source={require("../../assets/images/moreDot.png")}
-                />
-              </TouchableOpacity>
-            </View>
-          </View>
-          <Image
-            style={styles.postImg}
-            source={require("../../assets/images/post1.jpg")}
-          />
-          <View style={styles.postFooter}>
-            <View style={styles.postRow}>
-              <View style={styles.postLeft}>
-                <TouchableOpacity>
-                  {" "}
-                  <Image
-                    style={styles.icon}
-                    source={require("../../assets/images/heart.png")}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity>
-                  {" "}
-                  <Image
-                    style={styles.icon}
-                    source={require("../../assets/images/chat.png")}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity>
-                  {" "}
-                  <Image
-                    style={styles.icon}
-                    source={require("../../assets/images/share.png")}
-                  />
-                </TouchableOpacity>
-              </View>
-              <View>
-                <TouchableOpacity>
-                  <Image
-                    style={styles.icon}
-                    source={require("../../assets/images/bookmark-white.png")}
-                  />
-                </TouchableOpacity>
-              </View>
-            </View>
-            <View style={{ paddingLeft: 10, gap: 10, marginTop: 10 }}>
-              <Text style={styles.likeCount}>100 Likes</Text>
-              <Text style={styles.caption}>
-                Caption!! <Text style={{ color: "#000a" }}>...more</Text>
-              </Text>
-              <Text style={styles.commant}>View all commants </Text>
-            </View>
-          </View>
+          {PostAdress.map((item) => (
+            <Image style={styles.postImg} source={item.imgUrl} />
+          ))}
         </View>
       </ScrollView>
+      {/* //------------------------------------break--------------------------// */}
       {/* footer */}
-      <View style={styles.navHead}>
+      {/* <View style={styles.navHead}>
         <TouchableOpacity>
           {" "}
           <Image
@@ -181,7 +158,7 @@ export default function profile() {
             source={require("../../assets/images/share.png")}
           />
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
   );
 }
@@ -222,8 +199,12 @@ const styles = StyleSheet.create({
     height: minh,
     gap: 25,
   },
-  postFooter: {
-    height: "auto",
+  porfileRow: {
+    textAlign: "center",
+    height: "33%",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
   },
   bio: {
     fontSize: 18,
@@ -233,32 +214,18 @@ const styles = StyleSheet.create({
   },
   highlights: {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "baseline",
     justifyContent: "space-evenly",
+    height: "18%",
     paddingLeft: "3%",
     paddingRight: "3%",
-    borderBottomWidth: 1,
-    overflow: "hidden",
   },
   Hicon: {
-    height: "99%",
-    width: "auto",
-    borderRadius: 50,
-    alignItems: "center",
-    padding: 10,
-  },
-  Sicon: {
-    height: 100,
+    height: "100%",
     width: 100,
     borderRadius: 50,
-    borderColor: "#0a0",
+    borderColor: "black",
     borderWidth: 3,
-  },
-  Stxt: {
-    height: 30,
-    width: 100,
-    textAlign: "center",
-    fontSize: 16,
   },
   followSection: {
     height: "5%",
@@ -276,12 +243,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   postSection: {
-    width: "100%",
+    flexDirection: "row",
+    flex: 1,
+    gap: 1,
+    flexWrap: "wrap",
   },
-
+  postNav: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    height: "5%",
+  },
   postImg: {
-    width: "100%",
-    height: windowWidth,
+    width: "33%",
+    resizeMode: "contain",
   },
   btn: {
     marginTop: 5,
@@ -292,62 +267,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 10,
   },
-  search: {
-    borderWidth: 2,
-    borderRadius: 10,
-    width: "50%",
-    height: "80%",
-    textAlign: "center",
-    padding: 10,
-  },
-  postIcon: {
-    height: 60,
-    width: 60,
-    borderColor: "#a60",
-    borderWidth: 2,
-    borderRadius: 50,
-  },
-  postHead: {
-    height: 80,
-    alignItems: "center",
-    flexDirection: "row",
-    alignContent: "center",
-    justifyContent: "space-between",
-    paddingLeft: 10,
-    paddingRight: 10,
-  },
-  postHeadLeft: {
-    flexDirection: "row",
-    width: "60%",
-    alignItems: "center",
-    textAlign:"center",
-    gap: 10,
-  },
-  more: {
-    height: 30,
-    width: 30,
-  },
-  followBtn: {
-    width: 100,
-    fontSize:20,
-    justifyContent:"center",
-    color: "blue",
-    textAlign:"left",
-    fontWeight: "600",
-  },
-  postRow: {
-    flexDirection: "row",
-    gap: 10,
-    paddingTop: 10,
-    justifyContent: "space-between",
-  },
-  postLeft: { flexDirection: "row", paddingLeft: 10, gap: 20 },
-  commant: {
-    fontSize: 20,
-    color: "#000a",
-  },
-  likeCount: {
-    fontSize: 20,
-  },
-  caption: { fontSize: 18 },
 });
