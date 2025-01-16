@@ -14,7 +14,7 @@ export default function RootLayout() {
   // const Stack=CreateNavigationStack();
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    SpaceMono: require('../assets/fonts/PlaywriteIN-Regular.ttf'),
   });
 
   useEffect(() => {

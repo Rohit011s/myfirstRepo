@@ -58,10 +58,10 @@ export default function profile() {
           <View style={styles.postHead}>
             <View style={styles.postHeadLeft}>
               <Image
-                source={require("../../assets/images/icon.png")}
+                source={item.imgUrl}
                 style={styles.postIcon}
               />
-              <Text style={{fontSize:20}}>userID123</Text>
+              <Text style={{fontSize:20}}>{item.name}</Text>
               <TouchableOpacity style={styles.followBtn}>
                 Follow
               </TouchableOpacity>
@@ -327,6 +327,7 @@ const styles = StyleSheet.create({
   },
   likeCount: {
     fontSize: 20,
+    fontFamily:""
   },
   caption: { fontSize: 18 },
 });

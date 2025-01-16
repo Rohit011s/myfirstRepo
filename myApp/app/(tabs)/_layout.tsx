@@ -31,7 +31,7 @@ export default function TabLayout() {
         options={{
           title: 'Home',
           tabBarIcon: ({ color }) => <Image 
-          style={{backgroundColor: 'transparent', width: 28, height: 28}}
+          style={{backgroundColor: 'transparent',tintColor:"white", width: 28, height: 28}}
           source={images.home}
            />, 
         
@@ -42,7 +42,7 @@ export default function TabLayout() {
         options={{
           title: 'Profile',
           tabBarIcon: ({ color }) => <Image 
-          style={{backgroundColor: 'transparent', width: 28, height: 28}}
+          style={{backgroundColor: 'transparent',tintColor:"white", width: 28, height: 28}}
           source={require("../../assets/images/profile.png")}
            />,
         }}

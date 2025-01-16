@@ -10,7 +10,9 @@ import {
 } from "react-native";
 export default function HomeScreen() {
   const navigation=useNavigation();
-
+const navHome=()=>{
+    navigation.navigate('(tabs)');
+}
   return (
        <ImageBackground 
       source={require("../../assets/images/bgImg.jpg")} 
@@ -35,7 +37,7 @@ export default function HomeScreen() {
         <View style={styles.flexS}>
           <Image source={require('../../assets/images/email.png') } style={styles.icon}/>
         <TextInput style={styles.inputText}  placeholder="gmail"></TextInput> </View>
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity style={styles.btn} onPress={navHome}>
           <Text style={styles.inputText1}>sign up</Text>
         </TouchableOpacity>
         <TouchableOpacity  style={styles.btn}>
