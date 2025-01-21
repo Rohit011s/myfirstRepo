@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import images from "@/constants/ConstImg";
 import { Dimensions, TextInput } from "react-native";
 import {
@@ -10,8 +10,18 @@ import {
   ScrollView,
 } from "react-native";
 import PostAdress from "../interface/postData";
+import axios from "axios";
 
 export default function profile() {
+  const searchMovies=async()=>{
+    try{const response= await axios.get("http://www.omdbapi.com/?apikey=[d2ea8114]&http://www.omdbapi.com/?t=from");
+    console.log(response);}
+    catch(error){
+      console.log(error);
+    }
+    
+  };
+  useEffect(()=>{searchMovies()},[]);
   const windowWidth = Dimensions.get("window").width;
   const windowHeight = Dimensions.get("window").height;
   return (
@@ -124,7 +134,7 @@ export default function profile() {
         </View> ))}
       </ScrollView>
       {/* footer */}
-      <View style={styles.navHead}>
+      {/* <View style={styles.navHead}>
         <TouchableOpacity>
           {" "}
           <Image
@@ -160,7 +170,7 @@ export default function profile() {
             source={require("../../assets/images/share.png")}
           />
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
   );
 }

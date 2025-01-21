@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
   },
   postImg: {
     width: "33%",
-    resizeMode: "contain",
+    resizeMode: "cover",
   },
   btn: {
     marginTop: 5,
