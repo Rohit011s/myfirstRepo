@@ -11,6 +11,8 @@ import {
 } from "react-native";
 import PostAdress from "../interface/postData";
 import axios from "axios";
+import { useNavigation } from "expo-router";
+import story from "../(screen)/story";
 
 export default function profile() {
   const searchMovies=async()=>{
@@ -24,6 +26,7 @@ export default function profile() {
   useEffect(()=>{searchMovies()},[]);
   const windowWidth = Dimensions.get("window").width;
   const windowHeight = Dimensions.get("window").height;
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.navHead}>
@@ -46,19 +49,22 @@ export default function profile() {
 
 {
   PostAdress.map((item) => (
+  <TouchableOpacity
+   onPress={
+  ()=>{ navigation.navigate("(screen)",{screen:"story",params:{item}}
+  )}}
+   >
     <View style={styles.Hicon}>
     <Image
       source={item.imgUrl}
       style={styles.Sicon}
       />
-    <Text style={styles.Stxt}>{item.name}</Text>
+    <Text style={styles.Stxt}>{item.Username}</Text>
   </View>
+  </TouchableOpacity>
   ))
 }
   </ScrollView>
-         
-
-
 
         </View>
 
@@ -71,7 +77,7 @@ export default function profile() {
                 source={item.imgUrl}
                 style={styles.postIcon}
               />
-              <Text style={{fontSize:20}}>{item.name}</Text>
+              <Text style={{fontSize:20}}>{item.Username}</Text>
               <TouchableOpacity style={styles.followBtn}>
                 Follow
               </TouchableOpacity>
@@ -126,51 +132,13 @@ export default function profile() {
             <View style={{ paddingLeft: 10, gap: 10, marginTop: 10 }}>
               <Text style={styles.likeCount}>100 Likes</Text>
               <Text style={styles.caption}>
-                Caption!! <Text style={{ color: "#000a" }}>...more</Text>
+                {item.PostText} <Text style={{ color: "#000a" }}>...more</Text>
               </Text>
               <Text style={styles.commant}>View all commants </Text>
             </View>
           </View>
         </View> ))}
       </ScrollView>
-      {/* footer */}
-      {/* <View style={styles.navHead}>
-        <TouchableOpacity>
-          {" "}
-          <Image
-            style={styles.icon}
-            source={require("../../assets/images/home.png")}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          {" "}
-          <Image
-            style={styles.icon}
-            source={images.explore}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          {" "}
-          <Image
-            style={styles.icon}
-            source={images.addBtn}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          {" "}
-          <Image
-            style={styles.icon}
-            source={require("../../assets/images/reel.png")}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          {" "}
-          <Image
-            style={styles.icon}
-            source={require("../../assets/images/share.png")}
-          />
-        </TouchableOpacity>
-      </View> */}
     </View>
   );
 }

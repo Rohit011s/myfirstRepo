@@ -20,7 +20,8 @@ export default function HomeScreen() {
   const [lError, setLError] = useState<LoginError>({});
 
   useEffect(() => {
-    validation();
+    // validation();
+    navigation.navigate("(tabs)");
   }, [email, password]);
 
   function validation() {
@@ -41,7 +42,7 @@ export default function HomeScreen() {
   }
 
   const pressC = () => {
-    if (email.length !== 0 && password.length !== 0) {
+  if (email.length !== 0 && password.length !== 0) {
       navigation.navigate("(screen)");
     } else {
       setLError(lError);
