@@ -249,7 +249,7 @@ const styles = StyleSheet.create({
 
   postImg: {
     width: "100%",
-    height: windowWidth,
+    height: windowWidth-100,
   },
   btn: {
     marginTop: 5,
