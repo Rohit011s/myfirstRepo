@@ -20,12 +20,11 @@ export default function HomeScreen() {
   const [lError, setLError] = useState<LoginError>({});
 
   useEffect(() => {
-    // validation();
-    navigation.navigate("(tabs)");
+    validation();
   }, [email, password]);
 
   function validation() {
-    const newError ={ ...lError};
+    const newError = { ...lError };
     if (email.length === 0) {
       newError.email = "Email is required";
     } else {
@@ -41,21 +40,23 @@ export default function HomeScreen() {
     setLError(newError);
   }
 
-  const pressC = () => {
-  if (email.length !== 0 && password.length !== 0) {
-      navigation.navigate("(screen)");
+  const login = () => {
+    if (email.length !== 0 && password.length !== 0) {
+      navigation.navigate("(tabs)");
     } else {
       setLError(lError);
     }
   };
-
+  const signin = () => {
+    navigation.navigate("(screen)");
+  };
   return (
-    <ImageBackground
-      source={require("../assets/images/bgImg.jpg")}
-      style={{ height: "100%", width: "100%" }}
-      resizeMode="cover"
-    >
-      <ScrollView style={{ flex: 1 }}>
+    <ScrollView style={{ height: "100%" }}>
+      <ImageBackground
+        source={require("../assets/images/bgImg.jpg")}
+        style={{ height: "100%", width: "100%" }}
+        resizeMode="cover"
+      >
         <View style={styles.titleContainer}>
           <View style={styles.subView}>
             <Image
@@ -76,9 +77,9 @@ export default function HomeScreen() {
                 value={email}
               />
             </View>
-            <View style={{alignItems:"flex-start",width:"80%"}}>
-              <Text style={{ color: "red",fontSize:18 }}>{lError.email}</Text>
-              </View>
+            <View style={{ alignItems: "flex-start", width: "80%" }}>
+              <Text style={{ color: "red", fontSize: 18 }}>{lError.email}</Text>
+            </View>
             <Text style={styles.fontText}>Password :</Text>
             <View style={styles.flexS}>
               <Image
@@ -93,31 +94,36 @@ export default function HomeScreen() {
                 secureTextEntry
               />
             </View>
-            <View style={{alignItems:"flex-start",width:"80%"}}>
-              <Text style={{ color: "red",fontSize:18 }}>{lError.password}</Text>
-              </View>
-            <TouchableOpacity onPress={pressC} style={styles.btn}>
+            <View style={{ alignItems: "flex-start", width: "80%" }}>
+              <Text style={{ color: "red", fontSize: 18 }}>
+                {lError.password}
+              </Text>
+            </View>
+            <TouchableOpacity onPress={login} style={styles.btn}>
               <Text style={styles.inputText1}>Login</Text>
             </TouchableOpacity>
-            <TouchableOpacity  style={styles.btn}>
+            <TouchableOpacity onPress={signin} style={styles.btn}>
+              <Text style={styles.inputText1}>Create new account </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.btn}>
               <Text style={styles.link}>Forget Password ?</Text>
             </TouchableOpacity>
           </View>
         </View>
-      </ScrollView>
-    </ImageBackground>
+      </ImageBackground>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   titleContainer: {
-    height: "200%",
+    height: "120%",
     alignItems: "center",
     justifyContent: "center",
   },
   fontText: {
-    marginTop:5,
-    width: "80%",
+    marginTop: 5,
+    width: "90%",
     fontSize: 20,
     textAlign: "left",
     color: "black",
@@ -128,7 +134,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderColor: "blue",
     borderWidth: 2,
-    width: 500,
+    width: "80%",
     height: "auto",
     backgroundColor: "#fb6",
     shadowColor: "grey",
@@ -187,4 +193,4 @@ const styles = StyleSheet.create({
     height: 40,
     width: 40,
   },
-}); 
+});

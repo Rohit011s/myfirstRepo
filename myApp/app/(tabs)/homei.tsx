@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import images from "@/constants/ConstImg";
 import { Dimensions, TextInput } from "react-native";
 import {
@@ -27,6 +27,17 @@ export default function profile() {
   const windowWidth = Dimensions.get("window").width;
   const windowHeight = Dimensions.get("window").height;
   const navigation = useNavigation();
+  const [like, setLike] = useState(false);
+  const[likeButton,setLikeButton]=useState(images.like);
+  const likebtn = () => {
+if (!like) {
+ setLikeButton(images.liked);
+ setLike(true)
+}else{
+  setLikeButton(images.like);
+  setLike(false);
+}
+  };
   return (
     <View style={styles.container}>
       <View style={styles.navHead}>
@@ -98,11 +109,11 @@ export default function profile() {
           <View style={styles.postFooter}>
             <View style={styles.postRow}>
               <View style={styles.postLeft}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={likebtn}>
                   {" "}
                   <Image
                     style={styles.icon}
-                    source={require("../../assets/images/heart.png")}
+                    source={likeButton}
                   />
                 </TouchableOpacity>
                 <TouchableOpacity>
@@ -132,7 +143,7 @@ export default function profile() {
             <View style={{ paddingLeft: 10, gap: 10, marginTop: 10 }}>
               <Text style={styles.likeCount}>100 Likes</Text>
               <Text style={styles.caption}>
-                {item.PostText} <Text style={{ color: "#000a" }}>...more</Text>
+                {item.PostText} <Text style={{ color: "#000a" }}> !!</Text>
               </Text>
               <Text style={styles.commant}>View all commants </Text>
             </View>

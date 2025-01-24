@@ -59,12 +59,15 @@ export default function profile() {
             <View>Cool down...</View>
           </View>
           {/* highlights */}
+
           <View style={styles.highlights}>
+          <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} style={{height:"22%"}}>
             {HighlightAdress.map((item) => (
               <TouchableOpacity style={{ height: "100%" }}>
                 <Image source={item.img} style={styles.Hicon} />
               </TouchableOpacity>
             ))}
+            </ScrollView>
           </View>
         </View>
         {/* follow section */}
@@ -120,45 +123,7 @@ export default function profile() {
           ))}
         </View>
       </ScrollView>
-      {/* //------------------------------------break--------------------------// */}
-      {/* footer */}
-      {/* <View style={styles.navHead}>
-        <TouchableOpacity>
-          {" "}
-          <Image
-            style={styles.icon}
-            source={require("../../assets/images/home.png")}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          {" "}
-          <Image
-            style={styles.icon}
-            source={require("../../assets/images/compass.png")}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          {" "}
-          <Image
-            style={styles.icon}
-            source={require("../../assets/images/more.png")}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          {" "}
-          <Image
-            style={styles.icon}
-            source={require("../../assets/images/reel.png")}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          {" "}
-          <Image
-            style={styles.icon}
-            source={require("../../assets/images/share.png")}
-          />
-        </TouchableOpacity>
-      </View> */}
+  
     </View>
   );
 }
@@ -196,7 +161,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   profileSection: {
-    height: minh,
+    height: minh-120,
     gap: 25,
   },
   porfileRow: {
@@ -208,7 +173,7 @@ const styles = StyleSheet.create({
   },
   bio: {
     fontSize: 18,
-    height: "30%",
+    height: "20%",
     paddingLeft: "5%",
     justifyContent: "center",
   },
@@ -216,16 +181,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "baseline",
     justifyContent: "space-evenly",
-    height: "18%",
+    height: "100%",
     paddingLeft: "3%",
     paddingRight: "3%",
+    gap: 10,
+
+    
   },
   Hicon: {
-    height: "100%",
-    width: 100,
+    height: "99%",
+    width: 92,
     borderRadius: 50,
     borderColor: "black",
     borderWidth: 3,
+    marginRight: 3,
   },
   followSection: {
     height: "5%",
